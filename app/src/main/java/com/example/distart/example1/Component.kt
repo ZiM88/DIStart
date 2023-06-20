@@ -2,7 +2,7 @@ package com.example.distart.example1
 
 class Component {
 
-    fun getComputer(): Computer {
+    private fun getComputer(): Computer {
         val monitor = Monitor()
         val keyboard = Keyboard()
         val mouse = Mouse()

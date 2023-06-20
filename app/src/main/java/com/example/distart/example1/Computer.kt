@@ -1,6 +1,9 @@
 package com.example.distart.example1
 
-class Computer(
+import javax.inject.Inject
+
+
+class Computer (
     val monitor: Monitor,
     val computerTower: ComputerTower,
     val keyboard: Keyboard,
