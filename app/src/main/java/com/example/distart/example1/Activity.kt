@@ -1,13 +1,11 @@
 package com.example.distart.example1
 
+import javax.inject.Inject
+
 class Activity {
 
-    val computer: Computer = Component().getComputer()
-
-    lateinit var computer1: Computer
-
-    init {
-        Component().inject(this)
-    }
-
+   val component = DaggerNewComponent.create()
+   val keyboard = component.getKeyboard()
+   val mouse = component.getMouse()
+   val monitor = component.getMonitor()
 }
