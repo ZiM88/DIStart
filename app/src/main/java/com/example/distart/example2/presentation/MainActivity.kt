@@ -1,19 +1,19 @@
 package com.example.distart.example2.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.distart.R
+import com.example.distart.example2.ExampleApp
 import com.example.distart.example2.di.DaggerApplicationComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
     lateinit var viewModel: ExampleViewModel
 
     private val component by lazy {
-        DaggerApplicationComponent.factory()
-            .create(application, System.currentTimeMillis())
+        (application as ExampleApp).component
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
