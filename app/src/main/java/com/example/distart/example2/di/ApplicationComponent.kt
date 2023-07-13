@@ -5,7 +5,7 @@ import com.example.distart.example2.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [DataModule::class, DomainModule::class, ContextModule::class])
+@Component(modules = [DataModule::class, DomainModule::class])
 interface ApplicationComponent {
 
     fun inject(activity: MainActivity)
@@ -15,6 +15,9 @@ interface ApplicationComponent {
 
         @BindsInstance
         fun context(contex: Context): ApplicationComponentBuilder
+
+        @BindsInstance
+        fun timeMIllis(timeMillis: Long): ApplicationComponentBuilder
 
         fun build(): ApplicationComponent
     }
