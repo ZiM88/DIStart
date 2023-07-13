@@ -3,6 +3,7 @@ package com.example.distart.example2.presentation
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.distart.R
 import com.example.distart.example2.ExampleApp
 import com.example.distart.example2.di.DaggerApplicationComponent
@@ -10,7 +11,12 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: ExampleViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[ExampleViewModel::class.java]
+    }
 
     private val component by lazy {
         (application as ExampleApp).component
